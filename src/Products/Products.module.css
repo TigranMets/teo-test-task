@@ -1,0 +1,40 @@
+.addProduct {
+    position: absolute;
+    top: 10px;
+    right: 107px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #2065D0;
+}
+
+table {
+    margin: 50px 0px 0px 50px;
+    width: 90%;
+    text-align: left;
+    border-spacing: 0;
+    background-color: white;
+}
+
+thead {
+    background-color: #F4F6F8;
+}
+
+tbody {
+    position: relative;
+}
+
+tr {
+    border-bottom: 1px solid black;
+}
+
+td:first-child, td:last-child, th:first-child, th:last-child {
+    padding: 20px !important;
+}
+
+@media only screen and (max-width: 750px) {
+    thead {
+        display: none;
+    }
+}

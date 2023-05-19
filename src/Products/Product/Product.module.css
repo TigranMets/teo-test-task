@@ -1,0 +1,24 @@
+.product:hover {
+    padding: 10px 0px;
+    background-color: #ECEEEE;
+}
+
+.editing {
+    position: absolute;
+    right: 0;
+}
+
+.editing * {
+    margin-left: 12px;
+}
+
+.closeButton {
+    font-size: 23px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media only screen and (max-width: 750px) {
+    .product {
+        background-color: #B0D0FF;
+    }
+}

@@ -1,0 +1,12 @@
+.App {
+    display: flex;
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    background-color: #2065D0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

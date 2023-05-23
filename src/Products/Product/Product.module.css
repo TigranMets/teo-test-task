@@ -1,6 +1,18 @@
+tr {
+    position: relative;
+}
+
 .product:hover {
     padding: 10px 0px;
     background-color: #ECEEEE;
+}
+
+.productAddingCheckbox {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+    border: 20px solid #6E7881;
 }
 
 .editing {
@@ -20,5 +32,9 @@
 @media only screen and (max-width: 750px) {
     .product {
         background-color: #B0D0FF;
+    }
+
+    .editing {
+        position: static;
     }
 }

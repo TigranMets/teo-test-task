@@ -10,9 +10,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Products />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/login" element={<Login />} />
+          <Route path='/' element={<Products />} />
+          <Route path='/teo-test-task' element={<Products />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </Router>
     </div>

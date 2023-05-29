@@ -1,4 +1,4 @@
-import React, { startTransition, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import recycleBin from '../assets/images/recycle-bin.png'
 import Product from './Product/Product';
 import styles from './Products.module.css'
@@ -20,6 +20,22 @@ const Products = () => {
     ]);
 
     const [selectedProducts, setSelectedProducts] = useState(0);
+    const screenWidthRef = useRef(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState(screenWidthRef.current);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const newScreenWidth = window.innerWidth;
+            screenWidthRef.current = newScreenWidth;
+            setScreenWidth(newScreenWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const handleDelete = (vendorCode) => {
         setProducts(products.filter(product => product.vendorCode !== vendorCode));
@@ -59,6 +75,7 @@ const Products = () => {
         setSelectedProducts(0);
     };
 
+
     return <div className={styles.products}>
         <button className={styles.addProduct}>+ Добавить Товар</button>
         {selectedProducts > 0 && (
@@ -67,7 +84,7 @@ const Products = () => {
                 <img className={styles.trashBin} src={recycleBin} alt='мусорка' width='20' onClick={handleCancel} />
             </div>
         )}
-        <table>
+        {screenWidth > 770 ? <table>
             <thead>
                 <tr>
                     <th>Наименовние</th>
@@ -77,8 +94,9 @@ const Products = () => {
                 </tr>
             </thead>
             <tbody>
-                {products.map((product) => (
+                {products.map(product => (
                     <Product
+                        key={product.vendorCode}
                         onCheckboxChange={handleCheckboxChange}
                         onEdit={handleEdit}
                         handleEdit={handleEdit}
@@ -88,10 +106,27 @@ const Products = () => {
                         vendorCode={product.vendorCode}
                         price={product.price}
                         selected={product.selected}
+                        screenWidth={screenWidth}
                     />
                 ))}
             </tbody>
-        </table>
+        </table> : <div className={styles.productCards}>
+            {products.map(product => (
+                <Product
+                    key={product.vendorCode}
+                    onCheckboxChange={handleCheckboxChange}
+                    onEdit={handleEdit}
+                    handleEdit={handleEdit}
+                    handleDelete={handleDelete}
+                    name={product.name}
+                    quantity={product.quantity}
+                    vendorCode={product.vendorCode}
+                    price={product.price}
+                    selected={product.selected}
+                    screenWidth={screenWidth}
+                />
+            ))}
+        </div>}
     </div>
 }
 

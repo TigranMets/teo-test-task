@@ -42,6 +42,12 @@ th {
     padding: 15px;
 }
 
+.productCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width: 1200px) {
     .products {
         width: 95% !important;
@@ -57,9 +63,5 @@ th {
         position: static;
         margin: 70px 0px 20px 0px;
         font-size: 16px;
-    }
-
-    .quantityOfSelectedProducts {
-        margin-bottom: 20px;
     }
 }

@@ -1,0 +1,65 @@
+.cardProduct {
+    position: relative;
+    background-color: #B0D0FF;
+    border-radius: 20px;
+    width: 48%;
+    margin-bottom: 20px;
+    padding-top: 35px;
+}
+
+.editingAndSelect {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.editingAndSelect * {
+    margin-left: 5px;
+}
+
+.closeButton {
+    font-size: 21.5px;
+}
+
+.productAddingCheckbox {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    outline: none;
+    cursor: pointer;
+    border: 20px solid #6E7881;
+}
+
+.productInformationWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productInformationItem:not(:nth-child(4), :last-child) {
+    border-bottom: 1px solid white;
+}
+
+.productInformationItem {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+}
+
+.productInformaton {
+    text-align: center;
+}
+
+.editInput {
+    max-width: 30%;
+}
+
+@media only screen and (max-width: 528px) {
+    .cardProduct {
+        width: 100%;
+    }
+
+    .productInformationWrapper div {
+        min-width: 45%;
+        text-align: start;
+    }
+}
